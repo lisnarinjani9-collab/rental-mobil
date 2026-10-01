@@ -1,48 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- HEAD -->
-    <?php include 'partials/head.php' ?>
-    <!-- HEAD END -->
+<!-- Head -->
+<?php include 'partials/head.php' ?>
+<!-- Head -->
 
 <body>
-    <div id="overlay" class="overlay"></div>
+    <!-- <div id="overlay" class="overlay"></div> -->
     <!-- TOPBAR -->
     <?php include 'components/topbar.php' ?>
-    <!-- TOPBAR END -->
+    <!-- TOPBAR -->
 
     <!-- SIDEBAR -->
     <?php include 'components/sidebar.php' ?>
+    <!-- SIDEBAR -->
 
     <!-- MAIN CONTENT -->
-    <!-- fungi nya menampilkan halaman hanya dibagian main content saja -->
+    <!-- Fungsinya untuk menampilkan halaman hanya dibagian main content saja -->
     <?php
     $page = isset($_GET['page']) ? $_GET['page'] : "dashboard";
     switch ($page) {
-        // untuk memberi nama halamannya
+        // Untuk memberi nama halamannya
+        // Dashboard
         case 'dashboard':
-            // isinya apa/ mau di isi dengan bagian pages
+            // isinya apa / mau diisi dengan bagian pages apa
             include 'pages/dashboard.php';
-            // fungsi nya untuk menahan halaman agar tdk otomatis berpindah k halaman selanjutnya
+            // Fungsinya untuk menahan halaman agar tidak 
+            // otomatis berpindah ke halaman setelahnya
             break;
-        // kategori -> untuk halaman kategori
+        // Kategori -> untuk halaman kategori
+        // case nya nanti berfungsi untuk manggil 
+        // halaman di sidebar / hrefnya
         case 'kategori':
             include 'pages/kategori/kategori.php';
             break;
-        //untuk mengarahkan halaman awal yang akan dibuka
+        case 'tambah-kategori':
+            include 'pages/kategori/tambah.php';
+            break;
+        case 'kendaraan':
+            include 'pages/kendaraan/kendaraan.php';
+            break;
+        case 'tambah-kendaraan':
+            include 'pages/kendaraan/tambah.php';
+            break;
+        case 'penyewaan':
+            include 'pages/penyewaan/penyewaan.php';
+            break;
+        case 'tambah-penyewaan':
+            include 'pages/penyewaan/tambah.php';
+            break; 
+        case 'peminjam':
+            include 'pages/peminjam/peminjam.php';
+            break; 
+        case 'pembayaran':
+            include 'pages/pembayaran/pembayaran.php';
+            break;
+        case 'tambah-pembayaran':
+            include 'pages/pembayaran/tambah.php';
+            break;   
+        // untuk mengarahkan halaman awal yang akan dibuka
         default:
             include 'pages/dashboard.php';
             break;
     }
     ?>
-    <!-- MAIN END -->
+    <!-- MAIN CONTENT -->
 
-    <!-- SCRIPT -->
+    <!-- Bootstrap JS -->
     <?php include 'partials/script.php' ?>
-    <!-- SCRIPT END -->
-
-
-
+    <!-- Bootstrap JS -->
 </body>
 
 </html>
